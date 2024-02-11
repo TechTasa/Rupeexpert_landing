@@ -16,10 +16,10 @@ router.get('/login', (req, res) => {
 router.get('/logout', (req, res) => {
     req.session.destroy(err => {
       if (err) {
-        return res.redirect('/dashboard');
+        return res.redirect('/loan/apply');
       }
       res.clearCookie('sid');
-      res.redirect('/');
+      res.redirect('/auth/login');
     });
   });
   

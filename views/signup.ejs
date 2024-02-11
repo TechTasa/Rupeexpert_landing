@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Sign Up</title>
   <link rel="stylesheet" type="text/css" href="/css/signup.css">
 </head>
+
 <body>
   <h1>Sign Up</h1>
   <form action="/auth/signup" method="POST">
     <input type="text" name="username" placeholder="Username" required>
     <input type="password" name="password" placeholder="Password" required>
+    <input type="radio" id="admin" name="role" value="admin">
+    <label for="admin">Admin</label>
+    <input type="radio" id="agent" name="role" value="agent">
+    <label for="agent">Agent</label>
     <button type="submit">Sign Up</button>
   </form>
 </body>
+
 </html>

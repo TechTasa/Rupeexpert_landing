@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RupeeXpert</title>
+    <script>
+        window.onload = function() {
+          document.getElementById('job').onclick = function() {
+            document.getElementById('jobDetails').style.display = 'block';
+            document.getElementById('businessDetails').style.display = 'none';
+          }
+          document.getElementById('business').onclick = function() {
+            document.getElementById('jobDetails').style.display = 'none';
+            document.getElementById('businessDetails').style.display = 'block';
+          }
+        }
+      </script>
+</head>
+<body>
+    <h1>Loan Application Form</h1>
+  <form action="/loan/apply" method="POST">
+    <label for="fullName">Full Name (As per Pan Card):</label><br>
+    <input type="text" id="fullName" name="fullName" required><br>
+    <label for="contactNo">Contact No:</label><br>
+    <input type="text" id="contactNo" name="contactNo" required><br>
+    <label for="occupation">Occupation:</label><br>
+    <input type="radio" id="job" name="occupation" value="Job">
+    <label for="job">Job</label><br>
+    <input type="radio" id="business" name="occupation" value="Business">
+    <label for="business">Business</label><br>
+    <div id="jobDetails" >
+      <label for="monthlyNetSalary">Monthly NET Salary:</label><br>
+      <input type="number" id="monthlyNetSalary" name="monthlyNetSalary"><br>
+    </div>
+    <div id="businessDetails" style="display: none;">
+      <label for="yearlyTurnover">Yearly Turnover:</label><br>
+      <input type="number" id="yearlyTurnover" name="yearlyTurnover"><br>
+    </div>
+    <input type="submit" value="Apply">
+  </form>
+</body>
+</html>

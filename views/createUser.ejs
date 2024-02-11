@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
+</head>
+<style>
+    @import url(https://unpkg.com/@webpixels/css@1.1.5/dist/index.css);
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
+
+    #users {
+        width: 100%;
+        height: 100%;
+    }
+
+    #createbtn {
+        background-color: rgb(44, 192, 230);
+        padding: 0.5rem 1.5rem;
+        width: fit-content;
+    }
+
+    #createbtn>a {
+        color: white;
+    }
+
+    #editbtn,
+    #delbtn {
+        background-color: rgb(43, 139, 72);
+        padding: 0.5rem 1.5rem;
+        width: fit-content;
+        color: white;
+    }
+
+    #delbtn {
+        background-color: red;
+    }
+</style>
+
+<body>
+    <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+        <nav class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg"
+            id="navbarVertical">
+            <div class="container-fluid">
+                <!-- Toggler -->
+                <button class="navbar-toggler ms-n2" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Brand -->
+                <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="/">
+                    <img src="https://rupeexpert.com/Svg-XpertRupees/XpertRupees_Logo.svg" alt="...">
+                </a>
+
+                <!-- Collapse -->
+                <div class="collapse navbar-collapse" id="sidebarCollapse">
+                    <!-- Navigation -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard/overview">
+                                <i class="bi bi-house"></i> Overview
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard/leads">
+                                <i class="bi bi-people"></i> Leads
+                            </a>
+                        </li>
+                        <% if (role==='admin' ) { %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/dashboard/users">
+                                    <i class="bi bi-people"></i> Users
+                                </a>
+                            </li>
+                            <% } %>
+
+                    </ul>
+                    <!-- Divider -->
+                    <hr class="navbar-divider my-5 opacity-20">
+                    <!-- Navigation -->
+
+                    <!-- Push content down -->
+                    <div class="mt-auto"></div>
+                    <!-- User (md) -->
+                    <ul class="navbar-nav">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/auth/logout">
+                                <i class="bi bi-box-arrow-left"></i> Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Main content -->
+        <div class="h-screen flex-grow-1 overflow-y-lg-auto">
+            <!-- Header -->
+            <header class="bg-surface-primary border-bottom pt-6">
+                <div class="container-fluid">
+                    <div class="mb-npx">
+                        <div class="row align-items-center">
+                            <div class="col-sm-6 col-12 mb-4 mb-sm-0">
+                                <h1 id="createbtn" class="h2 mb-0 ls-tight"><a href="/dashboard/users/create">Create</a>
+                                </h1>
+                            </div>
+                            <div class="col-sm-6 col-12 text-sm-end">
+                            </div>
+                        </div>
+                        <ul class="nav nav-tabs mt-4 overflow-x border-0">
+                        </ul>
+                    </div>
+                </div>
+            </header>
+            <!-- Main -->
+            <main class="py-6 bg-surface-secondary">
+                <div class="container-fluid">
+                    <form action="/dashboard/users/create" method="post">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                        <label for="role">Role:</label>
+                        <select id="role" name="role" required>
+                            <option value="admin">Admin</option>
+                            <option value="agent">Agent</option>
+                        </select>
+                        <input type="submit" value="Create User">
+                    </form>
+                </div>
+            </main>
+        </div>
+
+
+</body>
+<script>
+    document.querySelector('.navbar-toggler').addEventListener("click", () => {
+        console.log("hello");
+        document.querySelector('.navbar-collapse').classList.toggle("collapse")
+    })
+</script>
+
+</html>

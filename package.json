@@ -4,6 +4,7 @@
   "description": "Blog App By Tech Tasa",
   "main": "server.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Umair Farooq",
@@ -18,5 +19,8 @@
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "mongoose": "^8.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
   }
 }

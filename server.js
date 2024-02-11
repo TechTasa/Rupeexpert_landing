@@ -2,9 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
-const authRoutes = require('./routes/authRoutes');
 const { connect} = require('./config/db');
 const bodyParser = require('body-parser');
+
+const authRoutes = require('./routes/authRoutes');
+const loanRoutes = require('./routes/loanRoutes');
+const dashboardRoutes = require('./routes/dashboardRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 require('dotenv').config();
 
@@ -36,17 +40,13 @@ const store = new MongoDBStore({
   
   app.use('/auth', authRoutes);
 
-  
+  app.use('/loan', loanRoutes);
 
-  app.get('/', (req, res) => {
-    if (req.session.user) {
-      res.send(req.session.user);
-    } else {
-      res.status(401).send('Not logged in');
-    }
-  });
-  
+  app.use('/dashboard', dashboardRoutes);
 
+  app.use('/dashboard', userRoutes);
+
+  
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server started on port http://localhost:${PORT}`));
