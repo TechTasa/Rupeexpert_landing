@@ -1,149 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/js/all.min.js"></script>
+    <link rel="stylesheet" href="/overview.css">
 </head>
-<style>
-    @import url(https://unpkg.com/@webpixels/css@1.1.5/dist/index.css);
-    @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
-</style>
 
 <body>
-    <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
-        <nav class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg"
-            id="navbarVertical">
-            <div class="container-fluid">
-                <!-- Toggler -->
-                <button class="navbar-toggler ms-n2" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <!-- Brand -->
-                <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="/">
-                    <img src="https://rupeexpert.com/Svg-XpertRupees/XpertRupees_Logo.svg" alt="...">
-                </a>
-
-                <!-- Collapse -->
-                <div class="collapse navbar-collapse" id="sidebarCollapse">
-                    <!-- Navigation -->
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/dashboard/overview">
-                                <i class="bi bi-house"></i> Overview
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/dashboard/leads">
-                                <i class="bi bi-people"></i> Leads
-                            </a>
-                        </li>
-                        <% if (role==='admin' ) { %>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/dashboard/users">
-                                    <i class="bi bi-people"></i> Users
-                                </a>
-                            </li>
-                            <% } %>
-                    </ul>
-                    <!-- Divider -->
-                    <hr class="navbar-divider my-5 opacity-20">
-                    <!-- Navigation -->
-
-                    <!-- Push content down -->
-                    <div class="mt-auto"></div>
-                    <!-- User (md) -->
-                    <ul class="navbar-nav">
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/auth/logout">
-                                <i class="bi bi-box-arrow-left"></i> Logout
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Main content -->
-        <div class="h-screen flex-grow-1 overflow-y-lg-auto">
-            <!-- Header -->
-            <header class="bg-surface-primary border-bottom pt-6">
-                <div class="container-fluid">
-                    <div class="mb-npx">
-                        <div class="row align-items-center">
-                            <div class="col-sm-6 col-12 mb-4 mb-sm-0">
-                                <h1 class="h2 mb-0 ls-tight">Leads</h1>
-                            </div>
-                            <div class="col-sm-6 col-12 text-sm-end">
-
-                            </div>
-                        </div>
-                        <ul class="nav nav-tabs mt-4 overflow-x border-0">
-                        </ul>
-                    </div>
-                </div>
-            </header>
-            <!-- Main -->
-            <main class="py-6 bg-surface-secondary">
-                <div class="container-fluid">
-                    <!-- Card stats -->
-                    <div class="row g-6 mb-6">
-                        <div class="col-xl-3 col-sm-6 col-12">
-                            <div class="card shadow border-0">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Leads
-                                                Today</span>
-                                            <span class="h3 font-bold mb-0">
-                                                <%= totalLeadsToday %>
-                                            </span>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
-                                                <i class="bi bi-credit-card"></i>
-                                            </div>
-                                          </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-sm-6 col-12">
-                            <div class="card shadow border-0">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total
-                                                Leads</span>
-                                            <span class="h3 font-bold mb-0">
-                                                <%= totalLeads %>
-                                            </span>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
-                                                <i class="bi bi-people"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </main>
+    <div id="head3r">
+        <div class="toggle">
+            <i class="fas fa-bars"></i>
         </div>
-
-
+        <img src="/XpertRupees_Logo_White.svg" alt="">
+        <a href="/auth/logout">
+            <i class="fas fa-sign-out-alt"></i>
+        </a>
+    </div>
+    <nav>
+        <ul>
+            <li>
+                <a class="toggle">
+                    <span class="icon"><i class="fas fa-bars"></i></span>
+                    <img src="/XpertRupees_Logo_White.svg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="/dashboard/overview">
+                    <span class="icon"><i class="fas fa-home"></i></span>
+                    <span class="title">Overview</span>
+                </a>
+            </li>
+            <% if (role==='admin' ) { %>
+                <li>
+                    <a href="/dashboard/users">
+                        <span class="icon"><i class="fas fa-user"></i></span>
+                        <span class="title">Users</span>
+                    </a>
+                </li>
+                <% } %>
+            <li>
+                <a href="/dashboard/leads">
+                    <span class="icon"><i class="fas fa-envelope"></i></span>
+                    <span class="title">Leads</span>
+                </a>
+            </li>
+            <li>
+                <a href="/auth/logout">
+                    <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                    <span class="title">Sign Out</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="main ov">
+        <h1>Overview</h1>
+        <div class="cards">
+            <div class="card">
+                <h3>Leads Today <i class="far fa-calendar-plus"></i></h3>
+                <p><%= totalLeadsToday %></p>
+            </div>
+            <div class="card">
+                <h3>Total Leads <i class="fas fa-tasks"></i></h3>
+                <p><%= totalLeads %></p>
+            </div>
+        </div>
+    </div>
 </body>
-<script>
-    document.querySelector('.navbar-toggler').addEventListener("click", () => {
-        console.log("hello");
-        document.querySelector('.navbar-collapse').classList.toggle("collapse")
-    })
-</script>
+<script src="/overview.js"></script>
 
 </html>

@@ -42,7 +42,7 @@ exports.login = async (req, res) => {
       });
     }
     req.session.user = user;
-    res.redirect('/dashboard/leads')
+    res.redirect('/dashboard/overview')
   } catch (err) {
     res.status(400).json({
       status: 'error',
