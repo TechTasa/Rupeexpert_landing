@@ -14,7 +14,7 @@ exports.showOverview = async (req, res) => {
         $lt: tomorrow
       }
     });
-    res.render('overview', { totalLeads, totalLeadsToday });
+    res.render('overview', { totalLeads, totalLeadsToday,role: req.session.user.role });
   } catch (err) {
     res.status(400).json({
       status: 'error',
@@ -69,7 +69,7 @@ exports.searchLeads = async (req, res) => {
     const limit = 100;
     const total = await Loan.countDocuments(searchCondition);
 
-    res.render('leads', { loans, page, pages: Math.ceil(total / limit) });
+    res.render('leads', { loans, page, pages: Math.ceil(total / limit) ,role:req.session.user.role});
   } catch (err) {
     res.status(400).json({
       status: 'error',

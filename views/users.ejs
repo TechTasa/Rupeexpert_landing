@@ -135,8 +135,8 @@
                                         <a id="editbtn" href="/dashboard/users/edit/<%= user._id %>">Edit</a>
                                     </td>
                                     <td>
-                                        <a id="delbtn" href="/dashboard/users/delete/<%= user._id %>">Delete</a>
-                                    </td>
+                                        <a id="delbtn" href="/dashboard/users/delete/<%= user._id %>" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
+                                      </td>
                                 </tr>
                                 <% }) %>
                         </tbody>

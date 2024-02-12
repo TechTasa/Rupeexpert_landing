@@ -41,11 +41,13 @@
                                 <i class="bi bi-people"></i> Leads
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/dashboard/users">
-                                <i class="bi bi-people"></i> Users
-                            </a>
-                        </li>
+                        <% if (role==='admin' ) { %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/dashboard/users">
+                                    <i class="bi bi-people"></i> Users
+                                </a>
+                            </li>
+                            <% } %>
                     </ul>
                     <!-- Divider -->
                     <hr class="navbar-divider my-5 opacity-20">
