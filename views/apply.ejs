@@ -27,16 +27,16 @@
       background-size: cover;
       display: flex;
       justify-content: center;
-      align-items: center;
-      flex-direction: column;
+      align-items: flex-start;
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      min-height: 100vh;
     }
 
     .top {
       display: flex;
-      width: 98vw;
+      width: 45vw;
       justify-content: center;
       align-items: center;
       flex-direction: column;
@@ -47,7 +47,6 @@
 
     .nav {
       display: flex;
-      width: 98vw;
       justify-content: flex-start;
       align-items: baseline;
       box-sizing: border-box;
@@ -75,9 +74,9 @@
     .bottom {
       padding: 0rem;
       box-sizing: border-box;
-      width: 100vw;
-    
+      width: 45vw;
       border-radius: 10px;
+      margin-top: 12rem;
     }
     form{
       padding: 10px;
@@ -125,6 +124,20 @@
     }
 
     @media (max-width: 600px) {
+      body{
+        flex-direction: column;
+        align-items: center;
+      }
+      .nav{
+        width: 98vw;
+      }
+      .top{
+        width: 98vw;
+      }
+      .bottom {
+      width: 98vw;
+      margin-top: 0;
+    }
       #ad {
       width: 95vw;
     }
@@ -214,7 +227,7 @@
       <div class="form-group">
         <label for="occupation">Occupation:</label>
         <div id="occupation">
-          <input type="radio" id="job" name="occupation" value="Job">
+          <input type="radio" id="job" name="occupation" value="Job" checked>
           <label for="job">Job</label>
           <input type="radio" id="business" name="occupation" value="Business">
           <label for="business">Business</label>
