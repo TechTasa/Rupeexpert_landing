@@ -6,7 +6,7 @@ const LoanSchema = new mongoose.Schema({
     required: [true, 'Please provide Full Name as per PAN Card']
   },
   contactNo: {
-    type: Number,
+    type: String,
     required: [true, 'Please provide Contact No']
   },
   occupation: {

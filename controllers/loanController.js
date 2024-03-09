@@ -195,7 +195,8 @@ exports.apply = async (req, res) => {
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: ['umairlone333@gmail.com','digital@rupeexpert.com','mohammadtasaduqkhan@oceanone.co.in'], // Replace with the intended recipient
+    // ,'digital@rupeexpert.com','mohammadtasaduqkhan@oceanone.co.in'
+    to: ['umairlone333@gmail.com'], // Replace with the intended recipient
     subject: `New Loan Application Received From ${savedLoan.fullName}`,
     text: `
       A new loan application has been submitted:

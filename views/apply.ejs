@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RupeeXpert</title>
   <script>
-    window.onload = function () {
-      document.getElementById('job').onclick = function () {
+    window.onload = function() {
+      document.getElementById('job').onclick = function() {
         document.getElementById('jobDetails').style.display = 'flex';
         document.getElementById('businessDetails').style.display = 'none';
       }
-      document.getElementById('business').onclick = function () {
+      document.getElementById('business').onclick = function() {
         document.getElementById('jobDetails').style.display = 'none';
         document.getElementById('businessDetails').style.display = 'flex';
       }
@@ -21,7 +21,7 @@
     body {
       font-family: Arial, Helvetica, sans-serif;
       font-weight: bold;
-      background:url(/Animated\ Shape.svg);
+      background: url(/Animated\ Shape.svg);
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -63,7 +63,8 @@
     #ad {
       width: 30vw;
     }
-    .headings{
+
+    .headings {
       color: white;
     }
 
@@ -78,20 +79,22 @@
       border-radius: 10px;
       margin-top: 12rem;
     }
-    form{
+
+    form {
       padding: 10px;
       border-radius: 10px;
     }
+
     .form-group {
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
       margin-bottom: 15px;
       padding: 10px;
-      background-color:rgba(255, 255, 255, 0);
+      background-color: rgba(255, 255, 255, 0);
       border-radius: 5px;
       color: white;
-     
+
     }
 
     label {
@@ -100,8 +103,9 @@
     }
 
     input[type="text"],
-    input[type="number"] {
-     
+    input[type="number"],
+    input[type="tel"] {
+
       padding: 10px;
       border: 1px solid #ddd;
       border-radius: 5px;
@@ -119,88 +123,104 @@
     input[type="submit"]:hover {
       background-color: #c08654;
     }
-    .benefits{
+
+    .benefits {
       display: none;
     }
 
     @media (max-width: 600px) {
-      body{
+      body {
         flex-direction: column;
         align-items: center;
       }
-      .nav{
+
+      .nav {
         width: 98vw;
       }
-      .top{
+
+      .top {
         width: 98vw;
       }
+
       .bottom {
-      width: 98vw;
-      margin-top: 0;
-    }
+        width: 98vw;
+        margin-top: 0;
+      }
+
       #ad {
-      width: 95vw;
-    }
+        width: 95vw;
+      }
+
       .form-group {
         width: 100%;
       }
-      .benefits{
-      padding: 1rem;
-      display: block;
-      overflow: hidden;
-    }
-    .benCards{
-      display: flex;
-      gap: 0.8rem;
-      overflow: auto;
-      width: 100vw;
-      margin: 2rem 0rem;
-    }
-    .benCards>div{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: #F78F34;
-      color: white;
-      padding: 5px;
-      border-radius: 10px;
-  
-    }
-    .benCards>div>img{
-      width: 50px;
-    }
-    .benCards>div>p{
-      width: 120px;
-      text-align: center;
-    }
-    .achievements{
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding: 10px;
-      margin: 3rem 0rem;
-    }
-    .achievements>img{
-      width: 30%;
-    }
-    .services{
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-    }
-    .services>img{
-      width: 40%;
-      padding:10px ;
-      background-color:#FF914C ;
-      border-radius: 10px;
-    }
-    .aboutus{
-      color: white;
-    }
+
+      .benefits {
+        padding: 1rem;
+        display: block;
+        overflow: hidden;
+      }
+
+      .benCards {
+        display: flex;
+        gap: 0.8rem;
+        overflow: auto;
+        width: 100vw;
+        margin: 2rem 0rem;
+      }
+
+      .benCards>div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #F78F34;
+        color: white;
+        padding: 5px;
+        border-radius: 10px;
+
+      }
+
+      .benCards>div>img {
+        width: 50px;
+      }
+
+      .benCards>div>p {
+        width: 120px;
+        text-align: center;
+      }
+
+      .achievements {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px;
+        margin: 3rem 0rem;
+      }
+
+      .achievements>img {
+        width: 30%;
+      }
+
+      .services {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .services>img {
+        width: 40%;
+        padding: 10px;
+        background-color: #FF914C;
+        border-radius: 10px;
+      }
+
+      .aboutus {
+        color: white;
+      }
     }
   </style>
 </head>
@@ -222,7 +242,11 @@
       </div>
       <div class="form-group">
         <label for="contactNo">Contact No:</label>
-        <input type="number" id="contactNo" name="contactNo" required>
+        <input type="tel" id="contactNo" name="contactNo" required minlength="13"  maxlength="13">
+
+        <script>
+          document.getElementById("contactNo").value = "+91"; // Pre-populate with country code and space
+        </script>
       </div>
       <div class="form-group">
         <label for="occupation">Occupation:</label>
