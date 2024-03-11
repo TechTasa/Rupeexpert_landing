@@ -104,7 +104,8 @@
 
     input[type="text"],
     input[type="number"],
-    input[type="tel"] {
+    input[type="tel"],
+    input[type="email"] {
 
       padding: 10px;
       border: 1px solid #ddd;
@@ -254,6 +255,10 @@
             return true;
           }
         </script>
+      </div>
+      <div class="form-group">
+        <label for="email">Email ID</label>
+        <input type="email" id="email" name="email" required>
       </div>
       <div class="form-group">
         <label for="occupation">Occupation:</label>

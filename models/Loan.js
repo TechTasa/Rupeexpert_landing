@@ -9,6 +9,10 @@ const LoanSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please provide Contact No']
   },
+  email: {
+    type: String,
+    required: [true, 'Please provide Email ID']
+  },
   occupation: {
     type: String,
     enum: ['Job', 'Business'],

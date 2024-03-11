@@ -12,11 +12,12 @@ exports.showApplyForm = (req, res) => {
 exports.apply = async (req, res) => {
   try {
     // Validate and create the loan application
-    const { fullName, contactNo, occupation, monthlyNetSalary, yearlyTurnover } = req.body;
+    const { fullName, contactNo,email, occupation, monthlyNetSalary, yearlyTurnover } = req.body;
 
     const loan = new Loan({
       fullName,
       contactNo,
+      email,
       occupation,
       ...(occupation === 'Job' ? { monthlyNetSalary } : { yearlyTurnover }), // Concise conditional assignment
     });
@@ -122,6 +123,13 @@ exports.apply = async (req, res) => {
                                 font-weight: normal;
                                 color: rgba(0, 0, 0, 0.64);
                               ">Contact</strong>${savedLoan.contactNo}
+                              <strong style="
+                                display: block;
+                                font-size: 13px;
+                                margin: 24px 0 4px 0;
+                                font-weight: normal;
+                                color: rgba(0, 0, 0, 0.64);
+                              ">Email</strong>${savedLoan.email}
                                                 <strong style="
                                 display: block;
                                 font-size: 13px;
@@ -195,13 +203,14 @@ exports.apply = async (req, res) => {
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: ['umairlone333@gmail.com','digital@rupeexpert.com','mohammadtasaduqkhan@oceanone.co.in'], // Replace with the intended recipient
+    to: ['digital@rupeexpert.com','mohammadtasaduqkhan@oceanone.co.in'], // Replace with the intended recipient
     subject: `New Loan Application Received From ${savedLoan.fullName}`,
     text: `
       A new loan application has been submitted:
 
       **Loan Applicant:** ${savedLoan.fullName}
       **Contact:** ${savedLoan.contactNo}
+      **Email:** ${savedLoan.email}
       **Occupation:** ${savedLoan.occupation}
 
       **Details:**
