@@ -12,12 +12,12 @@ exports.showApplyForm = (req, res) => {
 exports.apply = async (req, res) => {
   try {
     // Validate and create the loan application
-    const { fullName, contactNo,email, occupation, monthlyNetSalary, yearlyTurnover } = req.body;
+    const { fullName, contactNo,email='', occupation, monthlyNetSalary, yearlyTurnover } = req.body;
 
     const loan = new Loan({
       fullName,
       contactNo,
-      email,
+      email:email ? email : "NA",
       occupation,
       ...(occupation === 'Job' ? { monthlyNetSalary } : { yearlyTurnover }), // Concise conditional assignment
     });
@@ -311,7 +311,7 @@ exports.apply = async (req, res) => {
           <script>
             setTimeout(function(){
               window.location.href = '/loan/apply';
-            }, 1000);
+            }, 5000);
           </script>
         </body>
     </html>`);

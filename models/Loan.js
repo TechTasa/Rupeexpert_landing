@@ -11,7 +11,7 @@ const LoanSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    required: [true, 'Please provide Email ID']
+    required: [false, 'Please provide Email ID']
   },
   occupation: {
     type: String,

@@ -105,6 +105,7 @@ class="table-responsive">
    <th data-field="date" data-filter-control="input" data-sortable="true">Date</th>
    <th data-field="Occu" data-filter-control="select" data-sortable="true">Occupation</th>
    <th data-field="phno" data-filter-control="input" data-sortable="true">Contact No</th>
+   <th data-field="email" data-filter-control="input" data-sortable="true">Email</th>
    <th data-field="amount" data-filter-control="input" data-sortable="true">MonthlyNetSalary</th>
    <th data-field="amount2" data-filter-control="input" data-sortable="true">YearlyTurnover</th>
 </tr>
@@ -123,6 +124,7 @@ class="table-responsive">
      <%= `${day}/${month}/${year}` %></td>
      <td><%= loan.occupation %></td>
      <td><%= loan.contactNo %></td>
+     <td><%= loan.email %></td>
      <td><%= loan.monthlyNetSalary%></td>
      <td><%= loan.yearlyTurnover %></td>
    </tr>
